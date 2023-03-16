@@ -14,8 +14,8 @@ service = Service(executable_path="/path/to/chromedriver")
 driver = webdriver.Chrome(service=service)
 # title = driver.titl
 
-username = '87071819477'
-password = 'zhandos2003'
+username = ''
+password = ''
 
 try:
 #     driver.implicitly_wait(0.5)
