@@ -1,3 +1,5 @@
+import random
+
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -52,8 +54,15 @@ try:
     time.sleep(13)
     in_message = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[1]/div[2]/div/div/div/div/div[1]/a/div[1]')
     in_message.click()
-    time.sleep(130)
-
+    time.sleep(3)
+    count = 1
+    for i in range(100):
+        input_message = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
+        time.sleep(random.randint(2, 3))
+        input_message.send_keys(f'Я люблю тебя {count}')
+        input_message.send_keys(Keys.ENTER)
+        count += 1
+    time.sleep(500)
 except Exception as ex:
     print(ex)
 
