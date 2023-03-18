@@ -55,14 +55,30 @@ try:
     in_message = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[1]/div[2]/div/div/div/div/div[1]/a/div[1]')
     in_message.click()
     time.sleep(3)
-    count = 1
-    for i in range(100):
-        input_message = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
-        time.sleep(random.randint(2, 3))
-        input_message.send_keys(f'Я люблю тебя {count}')
-        input_message.send_keys(Keys.ENTER)
-        count += 1
-    time.sleep(500)
+
+    # Отправляет сообщение
+    text = 'ЛЮБЛЮ'
+    # for i in range(100):
+    #     time.sleep(random.randint(2, 3))
+    #     input_message.send_keys(f'Я люблю тебя {count}')
+    #     input_message.send_keys(Keys.ENTER)
+    #     count += 1
+    # time.sleep(500)
+
+
+    # Отправляет смайлики
+
+    input_message = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
+    # go_smail = driver.find_element(by=By.XPATH, value='/html/body/div[2]/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[1]/button').click()
+    input_message.send_keys('Я сильно ')
+
+    for i in range(500):
+        # time.sleep(random.randint(1,2))
+        input_message.send_keys('ЛЮБЛЮ')
+    input_message.send_keys('ТЕБЯ')
+    time.sleep(3)
+    input_message.send_keys(Keys.ENTER)
+
 except Exception as ex:
     print(ex)
 
